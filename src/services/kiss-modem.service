@@ -1,0 +1,14 @@
+[Unit]
+Description=KISS Modem
+
+[Service]
+Type=simple
+ExecStart=/usr/sbin/kissattach /dev/kiss radio
+ExecStartPost=/bin/sleep 1
+ExecStartPost=/usr/sbin/kissparms -p radio -c 1
+Restart=on-failure
+RestartSec=10
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

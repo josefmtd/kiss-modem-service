@@ -1,0 +1,1 @@
+SUBSYSTEM=="tty", SUBSYSTEMS=="usb", ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="7523", SYMLINK+="kiss", RUN+="/bin/systemctl restart kiss-modem"
