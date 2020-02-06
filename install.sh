@@ -22,8 +22,11 @@ sed -i 's|$WINDOW|'$WINDOW'|g' /etc/ax25/axports
 /bin/cp "${DIR}/src/services/kiss-modem.service" /etc/systemd/system/kiss-modem.service
 /bin/systemctl daemon-reload
 /bin/systemctl enable kiss-modem.service
-/bin/systemctl start kiss-modem.service
 
 # Install the udev rules
 /bin/cp "${DIR}/src/udev/10-kissmodem.rules" /etc/udev/rules.d/10-kissmodem.rules
 /sbin/udevadm control --reload
+
+# Restart the system
+/bin/sleep 5
+/bin/systemctl reboot
