@@ -22,7 +22,7 @@ restart-service:
 		systemctl restart kiss-modem.service
 
 .PHONY: install
-install: configure install-service
+install: dependencies configure install-service
 
 .PHONY: install-service
 install-service:
@@ -32,4 +32,3 @@ install-service:
 		systemctl start kiss-modem.service
 		cp ./src/udev/10-kissmodem.rules /etc/udev/rules.d/10-kissmodem.rules
 		udevadm control --reload
-
