@@ -4,7 +4,7 @@ include .env
 dependencies:
 		apt update
 		apt upgrade -y
-		apt install -y libax25-dev
+		apt install -y libax25-dev ax25-tools
 
 .PHONY: configure
 configure:
