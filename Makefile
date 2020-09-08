@@ -27,8 +27,8 @@ install: dependencies configure install-service
 .PHONY: install-service
 install-service:
 		cp ./src/services/kiss-modem.service /etc/systemd/system/kiss-modem.service
-		systemctl daemon-reload
-		systemctl enable kiss-modem.service
-		systemctl start kiss-modem.service
 		cp ./src/udev/10-kissmodem.rules /etc/udev/rules.d/10-kissmodem.rules
 		udevadm control --reload
+		systemctl daemon-reload
+		systemctl enable kiss-modem.service
+		systemctl restart kiss-modem.service
